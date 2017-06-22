@@ -55,32 +55,34 @@ class App extends Component {
      * @param {Number} i
      */
     onClickCard(i) {
-        const { boardState, isRedsTurn } = this.state
-        const card = boardState[i]
-        let isRedsTurnNext = isRedsTurn
+        return () => {
+            const { boardState, isRedsTurn } = this.state
+            const card = boardState[i]
+            let isRedsTurnNext = isRedsTurn
 
-        card.isClicked = true
+            card.isClicked = true
 
-        if (card.belongsTo === BOMB) {
-            if (isRedsTurn) {
-                alert('Blue wins!')
-            } else {
+            if (card.belongsTo === BOMB) {
+                if (isRedsTurn) {
+                    alert('Blue wins!')
+                } else {
+                    alert('Red wins!')
+                }
+            } else if (checkIfRedWins(boardState)) {
                 alert('Red wins!')
+            } else if (checkIfBlueWins(boardState)) {
+                alert('Blue wins!')
+            } else if (card.belongsTo === NEUTRAL ||
+                (card.belongsTo === RED && !isRedsTurn) ||
+                (card.belongsTo === BLUE && isRedsTurn)) {
+                isRedsTurnNext = !isRedsTurnNext
             }
-        } else if (checkIfRedWins(boardState)) {
-            alert('Red wins!')
-        } else if (checkIfBlueWins(boardState)) {
-            alert('Blue wins!')
-        } else if (card.belongsTo === NEUTRAL ||
-            (card.belongsTo === RED && !isRedsTurn) ||
-            (card.belongsTo === BLUE && isRedsTurn)) {
-            isRedsTurnNext = !isRedsTurnNext
-        }
 
-        this.setState({
-            boardState: boardState,
-            isRedsTurn: isRedsTurnNext
-        })
+            this.setState({
+                boardState: boardState,
+                isRedsTurn: isRedsTurnNext
+            })
+        }
     }
 
     resetBoardState() {
@@ -126,9 +128,13 @@ class App extends Component {
     }
 
     render() {
-        const cards = this.state.boardState.map(function(card) {
-            return <Card card={card} />
-        })
+        const cards = this.state.boardState.map((card, i) => (
+            <Card
+                card={card}
+                key={i}
+                onClick={this.onClickCard(i)}
+            />
+        ))
 
         return (
             <Board>

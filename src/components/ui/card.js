@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react'
 
 const propTypes = {
-    card: PropTypes.object.isRequired
+    card: PropTypes.object.isRequired,
+    onClick: PropTypes.func.isRequired
 }
 
-function Card(props) {
+function Card({ card, onClick }) {
     const {
         belongsTo,
         isClicked,
         word
-    } = props.card
+    } = card
 
     let className = `card ${belongsTo}`
 
@@ -20,9 +21,11 @@ function Card(props) {
     return (
         <div
             className={className}
-            onClick={props.onClick}
+            onClick={onClick}
         >
             {word}
+            {isClicked}
+            {belongsTo}
         </div>
     )
 }
