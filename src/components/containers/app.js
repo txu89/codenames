@@ -128,7 +128,9 @@ class App extends Component {
     }
 
     render() {
-        const cards = this.state.boardState.map((card, i) => (
+        const { boardState, isRedsTurn } = this.state
+
+        const cards = boardState.map((card, i) => (
             <Card
                 card={card}
                 key={i}
@@ -136,10 +138,15 @@ class App extends Component {
             />
         ))
 
+        const turnLabel = isRedsTurn ? "It's Red's turn." : "It's Blue's turn."
+
         return (
-            <Board>
-                {cards}
-            </Board>
+            <div>
+                {turnLabel}
+                <Board>
+                    {cards}
+                </Board>
+            </div>
         )
     }
 }
