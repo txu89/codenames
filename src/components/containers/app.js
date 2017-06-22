@@ -27,6 +27,7 @@ class App extends Component {
         const boardState = [];
 
         for (let i = 0; i < NUM_OF_CARDS; i++) {
+            let insertionIndex = Math.floor(Math.random() * NUM_OF_CARDS);
             let belongsTo
 
             switch (true) {
@@ -43,7 +44,15 @@ class App extends Component {
                     belongsTo = NEUTRAL
             }
 
-            boardState[i] = {
+            while (boardState[insertionIndex] !== undefined) {
+                if (insertionIndex === 24) {
+                    insertionIndex = 0
+                } else {
+                    insertionIndex++
+                }
+            }
+
+            boardState[insertionIndex] = {
                 belongsTo,
                 isClicked: false,
                 word: 'Mock Word'
