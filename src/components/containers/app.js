@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Board from '../ui/board';
+import Card from '../ui/card';
 
 const BLUE = 'blue';
 const RED = 'red';
@@ -126,7 +127,7 @@ class App extends Component {
 
     render() {
         const cards = this.state.boardState.map(function(card) {
-            return <div>{card.belongsTo}</div>
+            return <Card card={card} />
         })
 
         return (

@@ -5,8 +5,35 @@ body {
 }
 
 .board {
-    border: 1px solid grey;
     height: 720px;
-    width: 720px;
     margin: 48px auto 0;
+    width: 720px;
+}
+
+.card {
+    border-radius: 3px;
+    border: 1px solid grey;
+    box-sizing: border-box;
+    float: left;
+    height: calc(20% - 16px);
+    margin: 8px 12px;
+    padding: 12px;
+    text-align: center;
+    width: calc(20% - 24px);
+}
+
+.card.blue.is-clicked {
+    border: 1px solid blue;
+}
+
+.card.bomb.is-clicked {
+    border: 1px solid black;
+}
+
+.card.neutral.is-clicked {
+    border: 1px solid yellow;
+}
+
+.card.red.is-clicked {
+    border: 1px solid red;
 }
