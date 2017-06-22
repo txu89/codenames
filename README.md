@@ -1,5 +1,5 @@
 # Codenames
-
+This is a randomly generated game board for Codenames. It will be a virtual representation of the game and track cards/winner. Cluegiving will be done verbally and not entered in game itself.
 ## Game Design
 ### Game Board
   * 25 card displayed in 5x5 pattern
