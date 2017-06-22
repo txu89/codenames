@@ -75,6 +75,10 @@ class App extends Component {
                 } else {
                     alert('Red wins!')
                 }
+            } else if (card.belongsTo === NEUTRAL ||
+                (card.belongsTo === RED && !isRedsTurn) ||
+                (card.belongsTo === BLUE && isRedsTurn)) {
+                isRedsTurnNext = !isRedsTurnNext
             } else if (checkIfRedWins(boardState)) {
                 alert('Red wins!')
             } else if (checkIfBlueWins(boardState)) {
