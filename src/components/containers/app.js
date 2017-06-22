@@ -11,14 +11,23 @@ const BOMB = 'bomb';
 
 /**
  * @param  {Object[]} boardState
+ * @param  {String}   team
+ * @param  {Number}   numOfCardsNeededToWin
+ * @return {Boolean}
+ */
+function checkIfAnyWinner(boardState, team, numOfCardsNeededToWin) {
+    return boardState
+        .filter(({ belongsTo, isClicked }) => belongsTo === team && isClicked)
+        .length === numOfCardsNeededToWin
+}
+
+/**
+ * @param  {Object[]} boardState
  * @return {Boolean}
  */
 function checkIfRedWins(boardState) {
     const NUM_OF_CARDS_RED = 9
-
-    return boardState
-        .filter(({ belongsTo, isClicked }) => belongsTo === RED && isClicked)
-        .length === NUM_OF_CARDS_RED
+    checkIfAnyWinner(boardState, RED, NUM_OF_CARDS_RED)
 }
 
 /**
@@ -27,10 +36,7 @@ function checkIfRedWins(boardState) {
  */
 function checkIfBlueWins(boardState) {
     const NUM_OF_CARDS_BLUE = 8
-
-    return boardState
-        .filter(({ belongsTo, isClicked }) => belongsTo === BLUE && isClicked)
-        .length === NUM_OF_CARDS_BLUE
+    checkIfAnyWinner(boardState, BLUE, NUM_OF_CARDS_BLUE)
 }
 
 /**
@@ -73,10 +79,6 @@ class App extends Component {
                 alert('Red wins!')
             } else if (checkIfBlueWins(boardState)) {
                 alert('Blue wins!')
-            } else if (card.belongsTo === NEUTRAL ||
-                (card.belongsTo === RED && !isRedsTurn) ||
-                (card.belongsTo === BLUE && isRedsTurn)) {
-                isRedsTurnNext = !isRedsTurnNext
             }
 
             this.setState({
