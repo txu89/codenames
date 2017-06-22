@@ -28,3 +28,5 @@
   * New game button will reset and randomize game board
   * Change the color of cards using css
   * Each card will have a prop value stored to determine color/team
+  * Need to track number of correct words for each team
+  * 
