@@ -24,8 +24,9 @@ function Card({ card, onClick }) {
             onClick={onClick}
         >
             {word}
-            {isClicked}
-            {belongsTo}
+            <div>
+                {belongsTo}
+            </div>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import randomWords from 'random-words'
 
 import Board from '../ui/board';
 import Card from '../ui/card';
@@ -88,6 +89,7 @@ class App extends Component {
     resetBoardState() {
         const NUM_OF_CARDS = 25;
         const boardState = [];
+        const words = randomWords({ exactly: NUM_OF_CARDS })
 
         for (let i = 0; i < NUM_OF_CARDS; i++) {
             let insertionIndex = Math.floor(Math.random() * NUM_OF_CARDS)
@@ -118,7 +120,7 @@ class App extends Component {
             boardState[insertionIndex] = {
                 belongsTo,
                 isClicked: false,
-                word: 'Mock Word'
+                word: words[i]
             }
         }
 
