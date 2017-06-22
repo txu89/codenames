@@ -19,6 +19,7 @@
   * Players can guess words by clicking on the card
     * Card will change to the team color it belongs to
     * Team can continue if guessed correctly
+    * _Guesses per turn will be tracked by player, not game (maybe feature to be implemented later)_
     * Card that has been selected cannot be clicked on again
   * Turn ends when the player guesses incorrectly or clicks end turn button
   * Game end when all words belonging to one team is selected or bomb card is selected
@@ -29,4 +30,5 @@
   * Change the color of cards using css
   * Each card will have a prop value stored to determine color/team
   * Need to track number of correct words for each team
+    * Win condition: Check if all words for one team is selected
   * 
