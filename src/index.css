@@ -16,24 +16,44 @@ body {
     box-sizing: border-box;
     float: left;
     height: calc(20% - 16px);
-    margin: 8px 12px;
-    padding: 12px;
+    margin: 8px 12px 0 12px;
+    padding: 44px 0 0 0;
     text-align: center;
     width: calc(20% - 24px);
 }
 
 .card.blue.is-clicked {
-    border: 1px solid blue;
+    background: blue;
+    color: white;
 }
 
 .card.bomb.is-clicked {
-    border: 1px solid black;
+    background: black;
+    color: white;
 }
 
 .card.neutral.is-clicked {
-    border: 1px solid yellow;
+    background: tan;
+    color: white;
 }
 
 .card.red.is-clicked {
+    background: red;
+    color: white;
+}
+
+.card.blue.is-revealed {
+    border: 1px solid blue;
+}
+
+.card.bomb.is-revealed {
+    border: 1px solid black;
+}
+
+.card.neutral.is-revealed {
+    border: 1px solid yellow;
+}
+
+.card.red.is-revealed {
     border: 1px solid red;
 }
