@@ -4,9 +4,16 @@ const propTypes = {
     onClick: PropTypes.func.isRequired
 }
 
-function ResetGameButton({ onClick }) {
+function ResetGameButton(props) {
+    /**
+     * @param {Function} callback
+     */
+    function onClick(callback) {
+        window.confirm('Are you sure you want to reset the game?') && callback()
+    }
+
     return (
-        <button onClick={onClick}>
+        <button onClick={() => onClick(props.onClick)}>
             Reset Game
         </button>
     )
