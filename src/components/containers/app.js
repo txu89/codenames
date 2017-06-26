@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import randomWords from 'random-words'
 
-import Board from '../ui/board';
-import Card from '../ui/card';
+import Board from '../ui/board'
+import Card from '../ui/card'
 
-const BLUE = 'blue';
-const RED = 'red';
-const NEUTRAL = 'neutral';
-const BOMB = 'bomb';
+const BLUE = 'blue'
+const RED = 'red'
+const NEUTRAL = 'neutral'
+const BOMB = 'bomb'
 
 /**
  * @param  {Object[]} boardState
