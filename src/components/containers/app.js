@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import randomWords from 'random-words'
 
+import ResetGameButton from './reset-game-button'
 import Board from '../ui/board'
 import Card from '../ui/card'
 
@@ -45,6 +46,7 @@ function checkIfBlueWins(boardState) {
 class App extends Component {
     constructor(props) {
         super(props)
+        this.resetBoardState = this.resetBoardState.bind(this)
 
         this.state = {
             isRedsTurn: true,
@@ -150,6 +152,9 @@ class App extends Component {
 
         return (
             <div>
+                <ResetGameButton
+                    onClick={this.resetBoardState}
+                />
                 {turnLabel}
                 <Board>
                     {cards}
