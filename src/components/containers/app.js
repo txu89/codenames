@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import randomWords from 'random-words'
 
-import Board from '../ui/board';
-import Card from '../ui/card';
+import Board from '../ui/board'
+import Card from '../ui/card'
+import RevealButton from '../ui/revealButton'
 
-const BLUE = 'blue';
-const RED = 'red';
-const NEUTRAL = 'neutral';
-const BOMB = 'bomb';
+const BLUE = 'blue'
+const RED = 'red'
+const NEUTRAL = 'neutral'
+const BOMB = 'bomb'
 
 /**
  * @param  {Object[]} boardState
@@ -27,7 +28,7 @@ function checkIfAnyWinner(boardState, team, numOfCardsNeededToWin) {
  */
 function checkIfRedWins(boardState) {
     const NUM_OF_CARDS_RED = 9
-    checkIfAnyWinner(boardState, RED, NUM_OF_CARDS_RED)
+    return checkIfAnyWinner(boardState, RED, NUM_OF_CARDS_RED)
 }
 
 /**
@@ -36,7 +37,7 @@ function checkIfRedWins(boardState) {
  */
 function checkIfBlueWins(boardState) {
     const NUM_OF_CARDS_BLUE = 8
-    checkIfAnyWinner(boardState, BLUE, NUM_OF_CARDS_BLUE)
+    return checkIfAnyWinner(boardState, BLUE, NUM_OF_CARDS_BLUE)
 }
 
 /**
@@ -75,14 +76,14 @@ class App extends Component {
                 } else {
                     alert('Red wins!')
                 }
-            } else if (card.belongsTo === NEUTRAL ||
-                (card.belongsTo === RED && !isRedsTurn) ||
-                (card.belongsTo === BLUE && isRedsTurn)) {
-                isRedsTurnNext = !isRedsTurnNext
             } else if (checkIfRedWins(boardState)) {
                 alert('Red wins!')
             } else if (checkIfBlueWins(boardState)) {
                 alert('Blue wins!')
+            } else if (card.belongsTo === NEUTRAL ||
+                (card.belongsTo === RED && !isRedsTurn) ||
+                (card.belongsTo === BLUE && isRedsTurn)) {
+                isRedsTurnNext = !isRedsTurnNext
             }
 
             this.setState({
@@ -151,6 +152,7 @@ class App extends Component {
         return (
             <div>
                 {turnLabel}
+                <div><RevealButton /></div>
                 <Board>
                     {cards}
                 </Board>
