@@ -4,9 +4,13 @@ body {
   font-family: sans-serif;
 }
 
+/*div {
+    border: 1px solid blue;
+}*/
+
 .board {
     height: 720px;
-    margin: 48px auto 0;
+    margin: 20px auto 0;
     width: 720px;
 }
 
@@ -56,4 +60,16 @@ body {
 
 .card.red.is-revealed {
     border: 1px solid red;
+}
+
+.centerButtons {
+    display: block;
+    height: 25px;
+    margin: 25px auto;
+    width: 500px;
+}
+
+.revealButton {
+    float: right;
+    width: 100px;
 }
