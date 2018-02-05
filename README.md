@@ -32,4 +32,4 @@ This is a randomly generated game board for Codenames. It will be a virtual repr
   * Each card will have a prop value stored to determine color/team
   * Need to track number of correct words for each team
     * Win condition: Check if all words for one team is selected
-  * 
+  
