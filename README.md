@@ -1,4 +1,5 @@
 # Codenames
+![Codenames app](https://raw.githubusercontent.com/txu89/codenames/master/images/codenames.png)
 This is a randomly generated game board for Codenames. It will be a virtual representation of the game and track cards/winner. Cluegiving will be done verbally and not entered in game itself.
 ## Game Design
 ### Game Board
